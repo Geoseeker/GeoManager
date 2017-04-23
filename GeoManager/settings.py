@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'GeoRiddles'
 ]
 
 MIDDLEWARE = [
@@ -75,11 +76,16 @@ WSGI_APPLICATION = 'GeoManager.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'HOST': '127.0.0.1',
+        'NAME': 'geomanager',
+        'ENGINE': 'mysql.connector.django',
+        'USER': 'root',
+        'PASSWORD': 'coderslab',
+        'OPTIONS': {
+            'autocommit': True,
+        },
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
@@ -111,7 +117,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
