@@ -74,6 +74,7 @@ WSGI_APPLICATION = 'GeoManager.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
+# MySQL DataBase
 DATABASES = {
     'default': {
         'HOST': '127.0.0.1',
@@ -86,6 +87,19 @@ DATABASES = {
         },
     }
 }
+
+# Postgres
+
+# DATABASES = {
+#     'default': {
+#         'HOST': '127.0.0.1',
+#         'NAME': 'geomanager',
+#         'ENGINE': 'django.contrib.gis.db.backends.postgis',
+#         'USER': 'postgres',
+#         'PASSWORD': 'postgres',
+#         'PORT': '5432',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators

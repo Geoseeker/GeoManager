@@ -1,0 +1,41 @@
+{% block content %}
+<table border='1' width='600'>
+  <tr>
+    <th>Dane</th>
+    <th>Opis</th>
+  </tr>
+  <tr>
+    <td>Nazwa</td>
+    <td>{{detail.name}}</td>
+  </tr>
+   <tr>
+    <td>Opis</td>
+    <td>{{detail.description}}</td>
+  </tr>
+   <tr>
+    <td>Lokalizacja</td>
+    <td>{{detail.location}}</td>
+  </tr>
+   <tr>
+    <td>N</td>
+    <td>{{detail.latitude}}</td>
+  </tr> 
+  <tr>
+    <td>E</td>
+    <td>{{detail.longitude}}</td>
+  </tr>
+    <tr>
+    <td>Dodane przez:</td>
+    <td>{{detail.added_by}}</td>
+  </tr>
+</table>
+<br />
+<iframe 
+	width="600"
+  	height="450"
+  	frameborder="0" style="border:0"
+  	src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAtsLK68QWXli9IFPQfX0uqMbFYA0qozX0
+    &q={{detail.latitude}},{{detail.longitude}}" allowfullscreen></iframe>
+<br />
+<a href="{% url 'base' %}"><input type='submit' value='Home'></a>
+{% endblock %}

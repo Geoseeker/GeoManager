@@ -1,0 +1,11 @@
+{% block content %}
+<h1>Lista zagadek:</h1>
+<ol>
+	{% for riddle in mystery %}
+	<li><a href="{% url 'mystery-detail' riddle.id %}">{{riddle.name}}</a></li>
+		{% empty %}
+		   brak
+		{% endfor %}
+</ol>
+<a href="{% url 'add-mystery' %}" align="middle"><input type="submit" value="Dodaj"></a>
+{% endblock %}

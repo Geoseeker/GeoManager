@@ -1,4 +1,5 @@
 from django.db import models
+# from django.contrib.gis.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 
@@ -10,7 +11,8 @@ class Mystery(models.Model):
     location = models.CharField(max_length = 64)
     latitude = models.DecimalField(max_digits = 8, decimal_places = 6, null = True) #N or S
     longitude = models.DecimalField(max_digits = 8, decimal_places = 6, null = True) #W or E
-    added_by = models.ForeignKey(User)
+    #mapa = models.PointField(srid=4326, default=True)
+    added_by = models.ForeignKey(User, default=1)
     
     def get_absolute_url(self):
         return reverse('geospot', kwargs={'id': self.id})
@@ -19,5 +21,5 @@ class Mystery(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = 'Geostanowisko'  
-        verbose_name_plural = 'Geostanowiska'
+        verbose_name = 'Mystery Cache'  
+        verbose_name_plural = 'Mysterki'
