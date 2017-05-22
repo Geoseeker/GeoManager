@@ -15,12 +15,16 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from GeoRiddles.views import (AddMystery, BaseView, DetailMystery, MysteryView)
+from django.conf.urls.static import static
+from GeoRiddles.views import (AddMystery, BaseView, DetailMystery, DeleteMystery, MysteryView, UpdateMystery, UserLoginView)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'geomanager$', BaseView.as_view(), name = 'base'),
     url(r'geomanager/mystery$', MysteryView.as_view(), name = 'mystery'),
     url(r'geomanager/mystery_detail/(?P<id>(\d)+)', DetailMystery.as_view(), name =  'mystery-detail'),
-    url(r'geomanager/add_mystery', AddMystery.as_view(), name='add-mystery') 
+    url(r'geomanager/add_mystery', AddMystery.as_view(), name='add-mystery'),
+    url(r'geomanager/mystery_detail/update_mystery/(?P<pk>(\d)+)', UpdateMystery.as_view(), name =  'update-mystery'),
+    url(r'geomanager?mystery_detail/delete_mystery/(?P<pk>(\d)+)', DeleteMystery.as_view(), name = 'delete-mystery'),
+    url(r'login', UserLoginView.as_view(), name = 'login')
 ]

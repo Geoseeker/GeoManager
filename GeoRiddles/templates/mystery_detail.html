@@ -14,17 +14,21 @@
   </tr>
    <tr>
     <td>Lokalizacja</td>
-    <td>{{detail.location}}</td>
+    <td>Format DD: {{detail.location|slice:"7:26"}}</td>
   </tr>
    <tr>
     <td>N</td>
-    <td>{{detail.latitude}}</td>
+    <td>{{detail.location|slice:"17:26"}}</td>
   </tr> 
   <tr>
     <td>E</td>
-    <td>{{detail.longitude}}</td>
+    <td>{{detail.location|slice:"7:16"}}</td>
   </tr>
-    <tr>
+  <tr>
+  	<td>Foto</td>
+  	<td><img src='/{{detail.image}}' height="270" width="480"></td>
+  </tr>
+  <tr>
     <td>Dodane przez:</td>
     <td>{{detail.added_by}}</td>
   </tr>
@@ -35,7 +39,11 @@
   	height="450"
   	frameborder="0" style="border:0"
   	src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAtsLK68QWXli9IFPQfX0uqMbFYA0qozX0
-    &q={{detail.latitude}},{{detail.longitude}}" allowfullscreen></iframe>
+    &q={{detail.location|slice:'17:26'}},{{detail.location|slice:'7:16'}}" allowfullscreen></iframe>
 <br />
-<a href="{% url 'base' %}"><input type='submit' value='Home'></a>
+<a href="{% url 'update-mystery' pk=detail.id %}"><input type='submit' value='zaktualizuj'></a>
+<br />
+<a href="{% url 'delete-mystery' pk=detail.id %}"><input type='submit' value='usuń'></a>
+<br />
+<a href="{% url 'base' %}" align='middle'><input type='submit' value='Home'></a>
 {% endblock %}

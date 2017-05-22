@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+LOGIN_URL = '/login/'
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'GeoRiddles'
+    'GeoRiddles',
+    'mapwidgets',
 ]
 
 MIDDLEWARE = [
@@ -133,8 +134,16 @@ USE_L10N = True
 
 USE_TZ = False
 
+MAP_WIDGETS = {
+"GooglePointFieldWidget": (
+("zoom", 10),
+("size", "320x320"),
+("mapCenterLocation", [52.231549, 21.005624]),
+),
+"GOOGLE_MAP_API_KEY": "AIzaSyBedm3Uw_c8KGQkRMY0ZhipaxxRcmqmosA"
 
+}
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/GeoRiddles/static/'

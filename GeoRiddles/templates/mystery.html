@@ -3,9 +3,9 @@
 <ol>
 	{% for riddle in mystery %}
 	<li><a href="{% url 'mystery-detail' riddle.id %}">{{riddle.name}}</a></li>
-		{% empty %}
-		   brak
-		{% endfor %}
+	{% empty %}
+		brak
+	{% endfor %}
 </ol>
 <a href="{% url 'add-mystery' %}" align="middle"><input type="submit" value="Dodaj"></a>
 {% endblock %}
