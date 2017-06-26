@@ -3,6 +3,7 @@
 Dodaj rozwiązanie:
 <form action="" method="post" enctype="multipart/form-data">
 	{% csrf_token %}
+	<h1>Prosze podac lokalizacje do 6 miejsc po przecinku</h1>
 	{{ form.as_p }}
 	<input type="submit" value="Dodaj"/>
 </form>

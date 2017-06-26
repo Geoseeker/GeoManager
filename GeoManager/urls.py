@@ -25,6 +25,6 @@ urlpatterns = [
     url(r'geomanager/mystery_detail/(?P<id>(\d)+)', DetailMystery.as_view(), name =  'mystery-detail'),
     url(r'geomanager/add_mystery', AddMystery.as_view(), name='add-mystery'),
     url(r'geomanager/mystery_detail/update_mystery/(?P<pk>(\d)+)', UpdateMystery.as_view(), name =  'update-mystery'),
-    url(r'geomanager?mystery_detail/delete_mystery/(?P<pk>(\d)+)', DeleteMystery.as_view(), name = 'delete-mystery'),
+    url(r'geomanager/mystery_detail/delete_mystery/(?P<pk>(\d)+)', DeleteMystery.as_view(), name = 'delete-mystery'),
     url(r'login', UserLoginView.as_view(), name = 'login')
 ]
